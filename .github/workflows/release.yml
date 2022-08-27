@@ -25,7 +25,7 @@ jobs:
         cache: gradle
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: shadowJar
+    - name: Build
       run: ./gradlew build
     - name: Release
       uses: softprops/action-gh-release@v1
