@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "inputfix",
+  "version": "${version}",
+  "name": "InputFix",
+  "description": "修复macos输入时的一些小毛病",
+  "authors": [
+    "awalol"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "environment": "client",
+  "mixins": [
+    "inputfix.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.9",
+    "fabric": "*",
+    "minecraft": "1.19.2"
+  }
+}
