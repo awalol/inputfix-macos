@@ -1,8 +1,7 @@
 package cn.awalol.inputFix.mixin;
 
-import net.minecraft.SharedConstants;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.TextFieldWidget;
+import net.minecraft.util.StringHelper;
 import org.lwjgl.glfw.GLFW;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -20,13 +19,11 @@ public class TextFieldWidgetMixin {
     @Shadow
     public boolean isActive(){return false;}
     @Shadow
-    private boolean selecting;
-    @Shadow
     private void erase(int offset){}
 
     @Inject(method = "charTyped",at = @At("HEAD"))
     private void charTyped(char chr, int modifiers, CallbackInfoReturnable<Boolean> cir){
-        if(this.isActive() && SharedConstants.isValidChar(chr) && this.editable){
+        if(this.isActive() && StringHelper.isValidChar(chr) && this.editable){
             inputValue = 0;
         }
     }
@@ -41,9 +38,7 @@ public class TextFieldWidgetMixin {
             } else {
                 if(inputValue == 0){
                     if (this.editable) {
-                        this.selecting = false;
                         this.erase(-1);
-                        this.selecting = Screen.hasShiftDown();
                     }
                     cir.setReturnValue(true);
                     cir.cancel();
