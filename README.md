@@ -1,3 +1,8 @@
+# 更优的选择
+https://modrinth.com/mod/caramel-chat
+
+
+
 # Macos-Inputfix
 ## 修复的问题
  - 如果在选词框按退格的时候Minecraft也会触发退格的事件
